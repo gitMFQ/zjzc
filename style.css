@@ -180,7 +180,7 @@ header.sticky nav i {
 /* 内容区域 */
 /* 通用样式 */
 
-.content-wrapper {
+.centent-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,7 +225,7 @@ section {
 
 .intro {
   margin: 28px 0 60px 0;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--text-color-dark-gray);
 }
 
