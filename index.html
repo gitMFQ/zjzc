@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="libs/scrollReveal/scrollreveal.min.js"></script>
+  <link rel="icon" href="images/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.css">
+  <link rel="stylesheet" href="libs/glide/glide.core.min.css">
+  <link rel="stylesheet" href="libs/glide/glide.theme.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>昭佳租车</title>
+</head>
+
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="logo">昭佳租车</div>
+    <nav class="nav">
+      <a href="#home" class="active">首页</a>
+      <a href="#about-us">关于我们</a>
+      <a href="#showcases">车型列表</a>
+      <a href="#service">服务流程</a>
+      <a href="#team-intro">团队成员</a>
+      <a href="#company-activities">客户评价</a>
+      
+      <i class="fas fa-phone"> 187 9500 7776</i>
+      
+    </nav>
+    <div class="burger">
+      <div class="burger-line1"></div>
+      <div class="burger-line2"></div>
+      <div class="burger-line3"></div>
+    </div>
+  </header>
+  <!-- 轮播图 -->
+  <div id="home" class="glide">
+    <!-- 轮播轨道 -->
+    <div class="glide__track" data-glide-el="track">
+      <!-- 轮播容器 -->
+      <div class="glide__slides">
+        <!-- 轮播内容 -->
+        <div class="glide__slide">
+          <div class="slide-caption">
+            <h1>让科技如星尘般闪烁</h1>
+            <h3>科技创新大平台，智慧生活新引擎。</h3>
+            <button class="explore-btn">探索更多</button>
+          </div>
+          <div class="backdrop"></div>
+          <img src="images/people-in-couch-1024248.jpg" alt="">
+        </div>
+        <div class="glide__slide">
+          <div class="slide-caption">
+            <h1>目标是星尘大海</h1>
+            <h3>凝聚科技创意，成就创新梦想。</h3>
+            <button class="explore-btn">探索更多</button>
+          </div>
+          <div class="backdrop"></div>
+          <img src="images/keji.jpg" alt="">
+          <!-- <video src="videos/working-man.mp4" muted autoplay loop></video> -->
+        </div>
+      </div>
+    </div>
+    <!-- 切换轮播图按钮 指示圆点 -->
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+        < </button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+    </div>
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+      <button class="glide__bullet" data-glide-dir="=0"></button>
+      <button class="glide__bullet" data-glide-dir="=1"></button>
+    </div>
+  </div>
+  <div class="centent-wrapper">
+    <section id="about-us" class="about-us">
+      <h2 class="title1">关于我们</h2>
+      <p class="intro">
+        宁夏昭佳汽车服务有限公司是一家证照、备案齐全的汽车租赁公司，提供多种可定制用车服务。
+        <br><br>为您提供
+        <i>15+</i>
+        车型，超过
+        <i>50+</i>
+        辆车，以更多的选择满足您不同的需求
+      </p>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-car"></i>
+          <h4 class="feature-title">自驾租车</h4>
+          <p class="feature-concent">多种车型多种档次任你挑选，可提供接机服务</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-briefcase"></i>
+          <h4 class="feature-title">公务用车</h4>
+          <p class="feature-concent">公务用车，可公对公转账，及时开票</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-bus"></i>
+          <h4 class="feature-title">旅游包车</h4>
+          <p class="feature-concent">提供中型客车、大型客车带司机服务</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-heart"></i>
+          <h4 class="feature-title">婚庆租车</h4>
+          <p class="feature-concent">各种豪车应有尽有，随您挑选</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-map"></i>
+          <h4 class="feature-title">沙漠拓展</h4>
+          <p class="feature-concent">提供五湖穿越、沙漠徒步等项目</p>
+        </div>
+      </div>
+    </section>
+    <section id="showcases" class="showcases section-bg">
+      <h2 class="title1">车型列表</h2>
+      <div class="filter-btns">
+        <button class="filter-btn active" data-filter="*">全部</button>
+        <button class="filter-btn" data-filter=".hot">推荐</button>
+        <button class="filter-btn" data-filter=".suv">SUV</button>
+        <button class="filter-btn" data-filter=".mpv">MPV</button>
+        <button class="filter-btn" data-filter=".jiaoChe">轿车</button>
+        <button class="filter-btn" data-filter=".yueYe">越野</button>
+        <button class="filter-btn" data-filter=".pCar">皮卡</button>
+        <button class="filter-btn" data-filter=".bus">大客车</button>
+        <button class="filter-btn" data-filter=".haval">哈弗</button>
+        <button class=" filter-btn" data-filter=".toyota">丰田</button>
+        <button class="filter-btn" data-filter=".honda">本田</button>
+      </div>
+      <div class="cases">
+        <div class="case-item honda">
+          <img src="images/gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg" alt="">
+        </div>
+        <div class="case-item honda">
+          <img src="images/photo-of-imac-near-macbook-1029757.jpg" alt="">
+        </div>
+        <div class="case-item haval">
+          <img src="images/apple-laptop-notebook-office-39284.jpg" alt="">
+        </div>
+        <div class="case-item haval">
+          <img src="images/apple-apple-device-design-desk-285814.jpg" alt="">
+        </div>
+        <div class="case-item toyota">
+          <img src="images/person-using-black-and-white-smartphone-and-holding-blue-230544.jpg" alt="">
+        </div>
+        <div class="case-item honda">
+          <img src="images/person-holding-a-smartphone-892757.jpg" alt="">
+        </div>
+        <div class="case-item haval">
+          <img src="images/blur-close-up-code-computer-546819.jpg" alt="">
+        </div>
+        <div class="case-item toyota">
+          <img src="images/bokeh-photography-of-person-holding-turned-on-iphone-1440727.jpg" alt="">
+        </div>
+      </div>
+    </section>
+    <section id="service" class="service">
+      <h2 class="title1">服务流程</h2>
+      <p class="intro">服务流程简单明了，反应迅速！</p>
+      <div class="services">
+        <div class="service-item">
+          <i class="fas fa-comments"></i>
+          <h2 class="service-title">需求沟通</h2>
+          <p class="service-content">客户提出对车辆的基本需求，包括使用时间、使用车型等</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-gavel"></i>
+          <h2 class="service-title">项目评估</h2>
+          <p class="service-content">根据客户提出的需求进行计算，计算出相应的费用</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-file-signature"></i>
+          <h2 class="service-title">签订合同</h2>
+          <p class="service-content">双方确认费用、时间、车型等要求的基础上，双方共同签订合同</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-user"></i>
+          <h2 class="service-title">取车验车</h2>
+          <p class="service-content">双方对车辆进行外观、油表、里程等进行查验并签署验车单后客户取走车辆</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h2 class="service-title">使用阶段</h2>
+          <p class="service-content">客户在车辆使用过程中有任何问题应及时联系我们</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-user-check"></i>
+          <h2 class="service-title">还车验车</h2>
+          <p class="service-content">车辆使用完后客户联系我们进行还车验车</p>
+        </div>
+      </div>
+    </section>
+    <section id="team-intro" class="team-intro section-bg">
+      <h2 class="title1">团队成员</h2>
+      <div class="team-members">
+        <div class="team-member">
+          <div class="profile-image">
+            <img src="images/1.jpg" alt="">
+          </div>
+          <h4 class="name">牛昭平</h4>
+          <p class="position">总经理</p>
+          <ul class="social-links">
+            <i class="fas fa-phone">13099513793</i>
+          </ul>
+        </div>
+        
+      </div>
+    </section>
+    <section class="data-section">
+      <div class="data-piece">
+        <i class="fas fa-car"></i>
+        <div class="num">50+</div>
+        <div class="data-desc">车辆</div>
+      </div>
+      <div class="data-piece">
+        <i class="fas fa-award"></i>
+        <div class="num">999‰+</div>
+        <div class="data-desc">好评</div>
+      </div>
+      <div class="data-piece">
+        <i class="fas fa-laugh-wink"></i>
+        <div class="num">10000+</div>
+        <div class="data-desc">客户</div>
+      </div>
+      <div class="data-piece">
+        <i class="fas fa-car"></i>
+        <div class="num">15+</div>
+        <div class="data-desc">车型</div>
+      </div>
+    </section>
+    <section id="company-activities" class="company-activities">
+      <h2 class="title1">客户评价</h2>
+      <p class="intro">我们注重每一位客户的评价！</p>
+      <div class="activities">
+        
+        <div class="activity">
+          <div class="act-image-wrapper">
+            <img src="images/red-suspension-bridge-3493772.jpg" alt="">
+          </div>
+          <div class="meta">
+            <p class="date-published">
+              <i class="far fa-calendar"></i> 2024年5月31日
+            </p>
+            <p class="comments"><i class="far"></i> </p>
+          </div>
+          <h2 class="act-title">应急管理部国家自然灾害防治研究院：</h2>
+          <article>服务专业👍🏼，车辆车况优秀💪🏼。明年继续合作！</article>
+          <!--button class="readmore-btn">阅读更多</button-->
+        </div>
+        <div class="activity">
+          <div class="act-image-wrapper">
+            <img src="images/red-suspension-bridge-3493772.jpg" alt="">
+          </div>
+          <div class="meta">
+            <p class="date-published">
+              <i class="far fa-calendar"></i> 2024年6月1日
+            </p>
+            <p class="comments"><i class="far"></i> </p>
+          </div>
+          <h2 class="act-title">中铁第一勘察设计院集团有限公司：</h2>
+          <article>准时送还车，交接手续快捷便利，服务响应迅速，没有任何套路和强制消费。车况也不错，比较满意的用车体验。</article>
+          <!--button class="readmore-btn">阅读更多</button-->
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <div class="footer-menus">
+      <div class="contact-us">
+        <p class="menu-title">联系我们</p>
+        <p>地址: 宁夏银川金凤区上海西路新海家园10号</p>
+        <p>微信电话: 187 9500 7776   /    199 0957 0777</p>
+        <p>传真：0951-5606667</p>
+        <p>电子邮箱: superq520@foxmail.com</p>
+      </div>
+      
+      <div class="service-menu footer-menu">
+        <p class="menu-title">合作伙伴</p>
+        <ul class="menu-items">
+          <li><a href="#">携程旅行</a></li>
+          <li><a href="#">哈啰出行</a></li>
+          <li><a href="#">租租车</a></li>
+        </ul>
+      </div>
+      <!--p class="icp-info">宁ICP备 12345678901-1 号</p-->
+      <p class="rights">Copyright © 2024 昭佳汽车服务有限公司</p>
+      <div class="scrollToTop">
+        <a href="#"><i class="fas fa-chevron-up"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="libs/anime/anime.min.js"></script>
+  <script src="libs/glide/glide.min.js"></script>
+  <script src="libs/isotope/isotope.pkgd.min.js"></script>
+  <script src="libs/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
