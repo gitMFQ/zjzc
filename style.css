@@ -5,7 +5,13 @@
   font-family: Helvetica, "PingFang SC", "Micrsoft Yahei", sans-serif;
  
 }
-
+.social-links>a{color: #000;}
+header>nav>i>a:hover{color:#07C160}
+.social-links>a:hover{color:#07C160}
+.slide-caption a,
+.contact-us a{color:#fff}
+.slide-caption a:hover,
+.contact-us a:hover{color:#07C160}
 img {
   width: 100%;
 }
