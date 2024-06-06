@@ -12,7 +12,7 @@ window.addEventListener("scroll", () => {
     headerEl.classList.remove("sticky");
   }
   // 向下滑动超过2000像素 就显示
-  if (window.pageYOffset > 2000) {
+  if (window.pageYOffset > 800) {
     scrollToTop.style.display = "block";
   } else {
     scrollToTop.style.display = "none";
