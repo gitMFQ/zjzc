@@ -15,7 +15,7 @@ header>nav>i>a:hover{color:#07C160}
 img {
   width: 100%;
 }
-
+.menu-items>li>img{padding:20px}
 /* 通用变量 */
 :root {
   --primary-color:rgb(71, 102, 255);
