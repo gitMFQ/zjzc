@@ -625,6 +625,11 @@ footer {
   color: white;
   margin: 10px;
 }
+.icp-item img{
+  height: 20px;
+  width: 20px;
+  margin: 0 5px -5px 5px;
+}
 /* 从第一个到最后一个 */
 .icp-info,
 .rights {
@@ -886,4 +891,20 @@ footer {
     justify-self: start;
     text-align: left;
   }
+
+  .service-menu{
+    width: 100%;
+  }
+
+  .menu-items .qr{
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu-items>li>img {
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin-bottom: 15px;
+}
 }
