@@ -613,8 +613,17 @@ footer {
 }
 
 .icp-info {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.icp-item{
+  color: white;
+  margin: 10px;
 }
 /* 从第一个到最后一个 */
 .icp-info,
