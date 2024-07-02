@@ -26,7 +26,7 @@ img {
   --text-color-gray:#8b8b8b;
   --text-color-dark-gray:#727272;
   --text-color-light-gray:#c6c6c6;
-  --backdrop-color: rgba(42, 42, 42, 0.69);
+  --backdrop-color: rgba(42, 42, 42, 0.3);
 }
 
 header {
