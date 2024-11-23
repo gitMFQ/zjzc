@@ -46,7 +46,9 @@ header .logo {
   font-weight: 600;
   color: var(--text-color-lightest);
 }
-
+header .logo a img {
+  max-width: 300px;
+}
 header nav {
   justify-self: end;
 }
