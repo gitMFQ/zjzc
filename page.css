@@ -241,8 +241,7 @@ footer {
   }
 
   .footer-menu {
-    justify-self: start;
-    text-align: left;
+    display: none;
   }
 
   .service-menu{
