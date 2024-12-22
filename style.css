@@ -510,6 +510,11 @@ section {
   column-gap: 24px;
 }
 
+.activities-page {
+  grid-template-columns: 1fr;
+  row-gap: 36px;
+}
+
 .activity {
   box-shadow: 0px 0px 24px rgba(0,0,0,0.1);
   padding: 24px;
@@ -566,6 +571,17 @@ section {
 .activity:hover {
   transform: translateY(-20px) scale(1.05);
   box-shadow: 0px 0px 36px rgba(0,0,0,0.1);
+}
+
+.activity-page {
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.4);
+  margin: 24px 0;
+  transition: 0.4s;
+}
+
+.activity-page:hover {
+  transform: translateY(-20px) scale(1.15);
+  box-shadow: 0px 0px 36px rgba(0,0,0,0.4);
 }
 
 /* 底部信息 */
@@ -839,7 +855,7 @@ footer {
   }
 
   .footer-menu {
-    text-align: right;
+    display: none;
   }
 
   .activities {
@@ -890,8 +906,7 @@ footer {
   }
 
   .footer-menu {
-    justify-self: start;
-    text-align: left;
+    display: none;
   }
 
   .service-menu{
