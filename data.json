@@ -1,0 +1,146 @@
+{
+    "glide":[
+        {
+            "h1": "昭佳租车 坦克300 2024挑战者 2.0T",
+            "h2": "硬派潮品 燃擎而至",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/坦克1.jpg",
+            "alt": "银川坦克300租车，银川坦克SUV租车。"
+        },
+        {
+            "h1": "昭佳租车 皇冠陆放 2023 2.5L双擎 HEV四驱豪华版",
+            "h2": "承经典 铸传奇",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/陆放.jpg",
+            "alt": "银川丰田皇冠陆放租车，银川丰田SUV租车。"
+        },
+        {
+            "h1": "昭佳租车 全场景豪华MPV 别克GL8",
+            "h2": "恢弘气场 礼敬非凡",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/gl8.jpg",
+            "alt": "银川别克GL8租车，银川别克商务租车。"
+        },
+        {
+            "h1": "昭佳租车 哈弗H6 2023国潮版",
+            "h2": "目之所及 心之所动",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2023-2.jpg",
+            "alt": "银川哈弗H6租车，银川哈弗SUV租车。"
+        },
+        {
+            "h1": "昭佳租车 丰田卡罗拉锐放 2023 2.0L 先锋版",
+            "h2": "大气硬朗 动静皆主场",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/锐放.jpg",
+            "alt": "银川丰田卡罗拉锐放租车，银川丰田SUV租车。"
+        }
+    ],
+    "cases": [
+        {
+            "class": "case-item tank suv hot",
+            "src": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/KcvGCvl1pfyhHUGSMYTGWWfnRoSRwvCY2xbJXF2MDFbw9rGu76KhlhBAP2tov9K6jwVUOebu2ZT8091ylpWiavQ/0?wx_fmt=jpeg&wxfrom=3",
+            "alt": "银川坦克300租车"
+        },
+        {
+            "class": "case-item haval suv hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2023-2.jpg",
+            "alt": "银川哈弗H6租车"
+        },
+        {
+            "class": "case-item toyota suv hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/威兰达.jpg",
+            "alt": "银川丰田威兰达租车"
+        },
+        {
+            "class": "case-item byd jiaoChe hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/宋plusdmi.jpg",
+            "alt": "银川比亚迪宋plusdmi租车"
+        },
+        {
+            "class": "case-item honda suv",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/xrv.jpg",
+            "alt": "银川本田XR-V租车"
+        },
+        {
+            "class": "case-item buick jiaoChe",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/英朗.jpg",
+            "alt": "银川别克英朗租车"
+        },
+        {
+            "class": "case-item buick mpv",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/gl8.jpg",
+            "alt": "银川别克gl8租车"
+        },
+        {
+            "class": "case-item changcheng pCar",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/风骏5.jpg",
+            "alt": "银川长城风骏5租车"
+        },
+        {
+            "class": "case-item  honda jiaoChe",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/雅阁.jpg",
+            "alt": "银川本田雅阁租车"
+        },
+        {
+            "class": "case-item haval suv",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2023-1.jpg",
+            "alt": "银川哈弗H6租车"
+        },
+        {
+            "class": "case-item toyota suv hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/锐放.jpg",
+            "alt": "银川丰田卡罗拉锐放租车"
+        },
+        {
+            "class": "case-item toyota suv hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/陆放.jpg",
+            "alt": "银川丰田皇冠陆放租车"
+        },
+        {
+            "class": "case-item toyota suv hot",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/霸道.jpg",
+            "alt": "银川丰田普拉多租车，银川丰田霸道租车"
+        },
+        {
+            "class": "case-item toyota jiaoChe",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/雷凌.jpg",
+            "alt": "银川丰田雷凌租车"
+        },
+        {
+            "class": "case-item haval suv",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2019.jpg",
+            "alt": "银川哈弗H6便宜租车"
+        },
+        {
+            "class": "case-item toyota suv",
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/rav4.jpg",
+            "alt": "银川丰田RAV4荣放租车"
+        }
+    ],
+    "news":[
+        {
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/5-18.jpeg",
+            "alt": "金凤区附近租车公司",
+            "date": "2024年5月18日",
+            "h2": "携程客户：",
+            "article": "非常适合户外活动！体验感拉满！"
+        },
+        {
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/5-31.jpg",
+            "alt": "银川火车站附近租车公司",
+            "date": "2024年5月31日",
+            "h2": "应急管理部国家自然灾害防治研究院：",
+            "article": "服务专业👍🏼，车辆车况优秀💪🏼。明年继续合作！"
+        },
+        {
+            "src": "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/rav4.jpg",
+            "alt": "河东机场附近租车公司",
+            "date": "2024年6月1日",
+            "h2": "中铁第一勘察设计院集团有限公司：",
+            "article": "准时送还车，交接手续快捷便利，服务响应迅速，没有任何套路和强制消费。车况也不错，比较满意的用车体验。"
+        },
+        {
+            "src": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/KcvGCvl1pfyhHUGSMYTGWWfnRoSRwvCYOKVM55HMHXxuENef7SSxpdDiaW0SVia7C9KoULuqbicUPdiaxaicaUJIZAA/0?wx_fmt=jpeg&wxfrom=3",
+            "alt": "银川高铁站附近租车公司",
+            "date": "2024年6月14日",
+            "h2": "宁夏回族自治区石油化工环境科学研究院股份有限公司：",
+            "article": "服务好，车况也非常好，干净整洁。租车手续简单快捷，非常愉快和满意的租车经历。"
+        }
+    ]
+}
