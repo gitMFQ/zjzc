@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
 const headerEl = document.querySelector("header");
 const scrollToTop = document.querySelector(".scrollToTop");
 //  监听窗口滑动事件
@@ -131,4 +131,4 @@ burgerEl.addEventListener("click", () => {
   headerEl.classList.toggle("open");
 });
 
-});
+}
