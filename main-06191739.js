@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 const headerEl = document.querySelector("header");
 const scrollToTop = document.querySelector(".scrollToTop");
 //  监听窗口滑动事件
@@ -128,4 +129,6 @@ exploreBtnEls.forEach((exploreBtnEl) => {
 const burgerEl = document.querySelector(".burger");
 burgerEl.addEventListener("click", () => {
   headerEl.classList.toggle("open");
+});
+
 });
