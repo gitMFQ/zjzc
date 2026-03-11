@@ -1,0 +1,433 @@
+// Tailwind 配置
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#2563eb',
+        secondary: '#1e40af',
+        accent: '#f59e0b'
+      }
+    }
+  }
+};
+
+// 模板生成函数
+const Templates = {
+  // 导航栏桌面菜单项
+  navItems() {
+    const items = ['home', 'vehicles', 'about', 'contact', 'help'];
+    const names = { home: '首页', vehicles: '车型展示', about: '关于我们', contact: '联系方式', help: '帮助中心' };
+    return items.map(item => `
+      <a href="#" @click.prevent="page='${item}'" 
+         :class="page==='${item}'?'text-primary font-semibold':'text-gray-700 hover:text-primary'" 
+         x-text="'${names[item]}'"></a>
+    `).join('');
+  },
+
+  // 导航栏移动端菜单项
+  mobileNavItems() {
+    const items = ['home', 'vehicles', 'about', 'contact', 'help'];
+    const names = { home: '首页', vehicles: '车型展示', about: '关于我们', contact: '联系方式', help: '帮助中心' };
+    return items.map(item => `
+      <a href="#" @click.prevent="page='${item}';mobileMenu=false" 
+         :class="page==='${item}'?'bg-blue-50 text-primary':'text-gray-700'" 
+         class="block px-4 py-2 rounded-lg" 
+         x-text="'${names[item]}'"></a>
+    `).join('');
+  },
+
+  // 服务内容区块
+  servicesSection() {
+    return CarRentalData.services.map(service => `
+      <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer group">
+        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition">
+          <i data-lucide="${service.icon}" class="h-7 w-7 text-primary group-hover:text-white transition"></i>
+        </div>
+        <h3 class="font-semibold mb-2">${service.title}</h3>
+        <p class="text-gray-600 text-sm">${service.desc}</p>
+      </div>
+    `).join('');
+  },
+
+  // 热门车型区块
+  hotVehiclesSection() {
+    return CarRentalData.hotVehicles.map(id => {
+      const vehicle = CarRentalData.vehicles.find(v => v.id === id);
+      if (!vehicle) return '';
+      const categoryName = CarRentalData.categories.find(c => c.id === vehicle.category)?.name || '';
+      const categoryClass = {
+        economy: 'text-green-700', comfort: 'text-blue-700', luxury: 'text-purple-700',
+        suv: 'text-orange-700', mpv: 'text-teal-700', sedan: 'text-indigo-700', pickup: 'text-amber-700'
+      }[vehicle.category] || 'text-gray-700';
+      return `
+        <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="${vehicle.image}" alt="${vehicle.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x250/2563eb/ffffff?text=车辆图片'">
+            <div class="absolute top-3 right-3">
+              <span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-3 py-1 rounded-full ${categoryClass}">${categoryName}</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg text-gray-800 mb-2">${vehicle.name}</h3>
+            <p class="text-gray-500 text-sm mb-3">${vehicle.specs.split(' · ').slice(0,3).join(' · ')}</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              ${vehicle.features.map(f => `<span class="text-xs bg-white text-gray-600 px-2 py-1 rounded">${f}</span>`).join('')}
+            </div>
+            <button onclick="goToPage('vehicles')" class="w-full mt-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5 rounded-lg hover:from-blue-700 hover:to-blue-800 transition text-sm font-medium flex items-center justify-center gap-2">
+              <span>更多车型</span>
+              <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  },
+
+  // 服务流程区块
+  processSection() {
+    return CarRentalData.process.map(item => `
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg border-2 border-blue-100 group-hover:border-primary transition">
+          <i data-lucide="${item.icon}" class="h-8 w-8 text-primary"></i>
+        </div>
+        <div class="text-sm font-bold text-accent mb-1">Step ${item.step}</div>
+        <h3 class="font-semibold mb-2 text-gray-800">${item.title}</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">${item.desc}</p>
+      </div>
+    `).join('');
+  },
+
+  // 团队成员区块
+  teamSection() {
+    return CarRentalData.team.map(member => `
+      <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden text-center hover:shadow-xl transition group">
+        <div class="pt-8 pb-4">
+          <img src="${member.avatar}" alt="${member.name}" class="w-24 h-24 rounded-full mx-auto object-cover border-4 border-blue-100 group-hover:border-primary transition" onerror="this.src='https://placehold.co/100x100/2563eb/ffffff?text=${member.name.charAt(0)}'">
+        </div>
+        <div class="p-6 pt-2">
+          <h3 class="font-semibold text-lg">${member.name}</h3>
+          <p class="text-primary text-sm mb-2">${member.role}</p>
+          <p class="text-gray-600 text-sm">${member.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  // 客户评价区块
+  testimonialsSection() {
+    return CarRentalData.testimonials.map(review => `
+      <div class="bg-white rounded-xl p-6 hover:shadow-lg transition">
+        <div class="flex items-center mb-4">
+          ${Array(review.rating).fill('<i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>').join('')}
+        </div>
+        <p class="text-gray-600 text-sm mb-4 leading-relaxed">"${review.content}"</p>
+        <div class="flex items-center">
+          <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-3">${review.name.charAt(0)}</div>
+          <div>
+            <p class="font-semibold text-sm">${review.name}</p>
+            <p class="text-gray-500 text-xs">${review.role}</p>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  // 车型筛选按钮
+  vehicleFilterButtons() {
+    return `
+      <template x-for="cat in CarRentalData.categories">
+        <button @click="vehicleFilter=cat.id" :class="vehicleFilter===cat.id?'bg-primary text-white':'bg-white text-gray-700 hover:bg-gray-100'" class="px-5 py-2 rounded-full text-sm transition" x-text="cat.name"></button>
+      </template>
+    `;
+  },
+
+  // 车型列表
+  vehicleList() {
+    return `
+      <template x-for="vehicle in CarRentalData.vehicles" :key="vehicle.id">
+        <div x-show="vehicleFilter==='all'||vehicleFilter===vehicle.category" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
+          <div class="relative h-48 overflow-hidden">
+            <img :src="vehicle.image" :alt="vehicle.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x200/2563eb/ffffff?text=车辆图片'">
+            <div class="absolute top-3 right-3">
+              <span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-3 py-1 rounded-full" :class="getCategoryClass(vehicle.category)" x-text="getCategoryName(vehicle.category)"></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-lg text-gray-800" x-text="vehicle.name"></h3>
+            </div>
+            <p class="text-gray-500 text-sm mb-4" x-text="vehicle.specs"></p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <template x-for="feature in vehicle.features">
+                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded" x-text="feature"></span>
+              </template>
+            </div>
+            <button @click="bookingForm.vehicle=vehicle.name; page='contact'" class="w-full bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition text-sm font-medium">立即预订</button>
+          </div>
+        </div>
+      </template>
+    `;
+  },
+
+  // 优势区块
+  advantagesSection() {
+    return CarRentalData.advantages.map(advantage => `
+      <div class="flex items-start space-x-4">
+        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <i data-lucide="${advantage.icon}" class="h-5 w-5 text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-1">${advantage.title}</h3>
+          <p class="text-gray-600 text-sm">${advantage.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  // 联系信息
+  contactInfo() {
+    const c = CarRentalData.company;
+    return `
+      <div class="flex items-start space-x-4">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <i data-lucide="phone" class="h-6 w-6 text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold">客服热线</h3>
+          <p class="text-gray-600">${c.phone}</p>
+          <p class="text-sm text-gray-500">7×24小时为您服务</p>
+        </div>
+      </div>
+      <div class="flex items-start space-x-4">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <i data-lucide="mail" class="h-6 w-6 text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold">电子邮箱</h3>
+          <p class="text-gray-600">${c.email}</p>
+          <p class="text-sm text-gray-500">我们将在24小时内回复</p>
+        </div>
+      </div>
+      <div class="flex items-start space-x-4">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <i data-lucide="printer" class="h-6 w-6 text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold">传真</h3>
+          <p class="text-gray-600">${c.fax}</p>
+          <p class="text-sm text-gray-500">商务合作传真</p>
+        </div>
+      </div>
+      <div class="flex items-start space-x-4">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <i data-lucide="message-square" class="h-6 w-6 text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">微信公众号</h3>
+          <img src="https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/qrcode.jpg" alt="微信公众号二维码" class="w-28 h-28 rounded-lg shadow-sm">
+        </div>
+      </div>
+    `;
+  },
+
+  // 门店地址
+  storesSection() {
+    return CarRentalData.stores.map((store, index) => `
+      <div class="${index < CarRentalData.stores.length - 1 ? 'border-b pb-4' : ''}">
+        <p class="text-gray-600 text-sm">${store.address}</p>
+        <p class="text-sm text-gray-500">电话：${store.phone}</p>
+      </div>
+    `).join('');
+  },
+
+  // FAQ 区块
+  faqSection() {
+    return CarRentalData.faqs.map(faq => `
+      <div>
+        <h3 class="font-semibold mb-2">Q: ${faq.q}</h3>
+        <p class="text-gray-600">A: ${faq.a}</p>
+      </div>
+    `).join('');
+  },
+
+  // 租车须知
+  rentalGuideSection() {
+    return CarRentalData.rentalGuide.map(guide => `
+      <div class="bg-gray-50 rounded-lg p-5">
+        <div class="flex items-center mb-3">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+            <i data-lucide="${guide.icon}" class="h-5 w-5 text-primary"></i>
+          </div>
+          <h3 class="font-semibold">${guide.title}</h3>
+        </div>
+        <ul class="space-y-2">
+          ${guide.items.map(item => `
+            <li class="text-gray-600 text-sm flex items-start">
+              <span class="text-primary mr-2">•</span>
+              <span>${item}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `).join('');
+  },
+
+  // 服务条款
+  termsSection() {
+    return CarRentalData.terms.map(term => `<p>${term}</p>`).join('');
+  },
+
+  // Footer 快速链接
+  footerQuickLinks() {
+    return `
+      <li><a href="#" @click.prevent="page='home'" class="hover:text-white">首页</a></li>
+      <li><a href="#" @click.prevent="page='vehicles'" class="hover:text-white">车型展示</a></li>
+      <li><a href="#" @click.prevent="page='about'" class="hover:text-white">关于我们</a></li>
+      <li><a href="#" @click.prevent="page='contact'" class="hover:text-white">联系方式</a></li>
+    `;
+  },
+
+  // Footer 服务支持
+  footerServiceLinks() {
+    return `
+      <li><a href="#" @click.prevent="page='help'" class="hover:text-white">帮助中心</a></li>
+      <li><a href="#" @click.prevent="page='help'" class="hover:text-white">租车须知</a></li>
+      <li><a href="#" @click.prevent="page='help'" class="hover:text-white">服务条款</a></li>
+      <li><a href="#" @click.prevent="page='help'" class="hover:text-white">常见问题</a></li>
+    `;
+  },
+
+  // Footer 联系信息
+  footerContactInfo() {
+    return `
+      <li class="flex items-center"><i data-lucide="phone" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.phone"></span></li>
+      <li class="flex items-center"><i data-lucide="mail" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.email"></span></li>
+      <li class="flex items-center"><i data-lucide="map-pin" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.address"></span></li>
+    `;
+  }
+};
+
+// 全局页面切换函数 - 使用自定义事件
+function goToPage(pageId) {
+  window.dispatchEvent(new CustomEvent('navigate', { detail: { page: pageId } }));
+}
+
+// 全局预订车辆函数 - 使用自定义事件
+function bookVehicle(vehicleName) {
+  window.dispatchEvent(new CustomEvent('book', { detail: { vehicle: vehicleName } }));
+}
+
+// Alpine.js 应用初始化
+document.addEventListener('alpine:init', () => {
+  Alpine.data('carRentalApp', () => ({
+    page: 'home',
+    mobileMenu: false,
+    vehicleFilter: 'all',
+    bookingForm: { name: '', phone: '', vehicle: '', date: '' },
+    submitSuccess: false,
+    scrollY: 0,
+    data: CarRentalData,
+    templates: Templates,
+    
+    init() {
+      // 初始渲染图标
+      this.$nextTick(() => lucide.createIcons());
+      // 监听页面切换，重新渲染图标
+      this.$watch('page', () => {
+        this.$nextTick(() => lucide.createIcons());
+      });
+      // 监听全局导航事件
+      window.addEventListener('navigate', (e) => {
+        this.page = e.detail.page;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.$nextTick(() => lucide.createIcons());
+      });
+      // 监听全局预订事件
+      window.addEventListener('book', (e) => {
+        this.bookingForm.vehicle = e.detail.vehicle;
+        this.page = 'contact';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.$nextTick(() => lucide.createIcons());
+      });
+    },
+    
+    // 获取分类名称
+    getCategoryName(categoryId) {
+      const cat = this.data.categories.find(c => c.id === categoryId);
+      return cat ? cat.name : '';
+    },
+    
+    // 获取分类颜色类
+    getCategoryClass(categoryId) {
+      const colorMap = {
+        economy: 'text-green-700',
+        comfort: 'text-blue-700',
+        luxury: 'text-purple-700',
+        suv: 'text-orange-700',
+        mpv: 'text-teal-700',
+        sedan: 'text-indigo-700',
+        pickup: 'text-amber-700'
+      };
+      return colorMap[categoryId] || 'text-gray-700';
+    },
+    
+    // 筛选车辆
+    get filteredVehicles() {
+      if (this.vehicleFilter === 'all') {
+        return this.data.vehicles;
+      }
+      return this.data.vehicles.filter(v => v.category === this.vehicleFilter);
+    },
+    
+    // 热门车辆
+    get hotVehicles() {
+      return this.data.hotVehicles.map(id => 
+        this.data.vehicles.find(v => v.id === id)
+      ).filter(Boolean);
+    },
+    
+    // Webhook 提交函数
+    async submitBooking() {
+      const webhookUrl = 'YOUR_WEBHOOK_URL_HERE';
+      
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...this.bookingForm,
+            timestamp: new Date().toISOString()
+          })
+        });
+
+        if (response.ok) {
+          this.submitSuccess = true;
+          setTimeout(() => {
+            this.submitSuccess = false;
+            this.bookingForm = { name: '', phone: '', vehicle: '', date: '' };
+          }, 3000);
+        } else {
+          alert('提交失败，请稍后重试');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        this.submitSuccess = true;
+        setTimeout(() => {
+          this.submitSuccess = false;
+          this.bookingForm = { name: '', phone: '', vehicle: '', date: '' };
+        }, 3000);
+      }
+    },
+    
+    // 滚动到顶部
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    
+    // 切换页面
+    goToPage(pageId) {
+      this.page = pageId;
+      this.mobileMenu = false;
+    }
+  }));
+});
