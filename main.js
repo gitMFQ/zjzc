@@ -53,6 +53,19 @@ const Templates = {
     `).join('');
   },
 
+  // 特色优势区块
+  featuresSection() {
+    return CarRentalData.features.map(feature => `
+      <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition group">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <i data-lucide="${feature.icon}" class="h-8 w-8 text-white"></i>
+        </div>
+        <h3 class="font-bold text-lg text-gray-800 mb-2">${feature.title}</h3>
+        <p class="text-gray-600 text-sm">${feature.desc}</p>
+      </div>
+    `).join('');
+  },
+
   // 热门车型区块
   hotVehiclesSection() {
     return CarRentalData.hotVehicles.map(id => {
@@ -245,11 +258,17 @@ const Templates = {
   },
 
   // FAQ 区块
+  // FAQ 区块 - 折叠手风琴式
   faqSection() {
-    return CarRentalData.faqs.map(faq => `
-      <div>
-        <h3 class="font-semibold mb-2">Q: ${faq.q}</h3>
-        <p class="text-gray-600">A: ${faq.a}</p>
+    return CarRentalData.faqs.map((faq, index) => `
+      <div class="border border-gray-200 rounded-lg overflow-hidden" x-data="{ open: ${index === 0} }">
+        <button @click="open = !open" class="w-full flex items-center justify-between p-4 text-left bg-white hover:bg-gray-50 transition">
+          <span class="font-medium text-gray-800 pr-4">Q: ${faq.q}</span>
+          <i data-lucide="chevron-down" class="h-5 w-5 text-gray-400 transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" x-collapse class="px-4 pb-4 bg-gray-50">
+          <p class="text-gray-600 text-sm leading-relaxed">${faq.a}</p>
+        </div>
       </div>
     `).join('');
   },
@@ -408,7 +427,7 @@ document.addEventListener('alpine:init', () => {
     page: 'home',
     mobileMenu: false,
     vehicleFilter: 'all',
-    bookingForm: { name: '', phone: '', vehicle: '', date: '' },
+    bookingForm: { name: '', phone: '', vehicle: '', date: '', returnDate: '', remarks: '' },
     submitSuccess: false,
     scrollY: 0,
     data: CarRentalData,
@@ -489,7 +508,7 @@ document.addEventListener('alpine:init', () => {
           this.submitSuccess = true;
           setTimeout(() => {
             this.submitSuccess = false;
-            this.bookingForm = { name: '', phone: '', vehicle: '', date: '' };
+            this.bookingForm = { name: '', phone: '', vehicle: '', date: '', returnDate: '', remarks: '' };
           }, 3000);
         } else {
           alert('提交失败，请稍后重试');
@@ -499,8 +518,7 @@ document.addEventListener('alpine:init', () => {
         this.submitSuccess = true;
         setTimeout(() => {
           this.submitSuccess = false;
-          this.bookingForm = { name: '', phone: '', vehicle: '', date: '' };
-        }, 3000);
+                      this.bookingForm = { name: '', phone: '', vehicle: '', date: '', returnDate: '', remarks: '' };        }, 3000);
       }
     },
     
