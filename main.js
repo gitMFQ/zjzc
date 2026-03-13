@@ -15,8 +15,8 @@ tailwind.config = {
 const Templates = {
   // 导航栏桌面菜单项
   navItems() {
-    const items = ['home', 'vehicles', 'about', 'contact', 'help'];
-    const names = { home: '首页', vehicles: '车型展示', about: '关于我们', contact: '联系方式', help: '帮助中心' };
+    const items = ['home', 'vehicles', 'packages', 'about', 'contact', 'help'];
+    const names = { home: '首页', vehicles: '车型展示', packages: '服务套餐', about: '关于我们', contact: '联系方式', help: '帮助中心' };
     return items.map(item => `
       <a href="#" @click.prevent="page='${item}'" 
          :class="page==='${item}'?'text-primary font-semibold':'text-gray-700 hover:text-primary'" 
@@ -26,8 +26,8 @@ const Templates = {
 
   // 导航栏移动端菜单项
   mobileNavItems() {
-    const items = ['home', 'vehicles', 'about', 'contact', 'help'];
-    const names = { home: '首页', vehicles: '车型展示', about: '关于我们', contact: '联系方式', help: '帮助中心' };
+    const items = ['home', 'vehicles', 'packages', 'about', 'contact', 'help'];
+    const names = { home: '首页', vehicles: '车型展示', packages: '服务套餐', about: '关于我们', contact: '联系方式', help: '帮助中心' };
     return items.map(item => `
       <a href="#" @click.prevent="page='${item}';mobileMenu=false" 
          :class="page==='${item}'?'bg-blue-50 text-primary':'text-gray-700'" 
@@ -39,12 +39,16 @@ const Templates = {
   // 服务内容区块
   servicesSection() {
     return CarRentalData.services.map(service => `
-      <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer group">
-        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition">
-          <i data-lucide="${service.icon}" class="h-7 w-7 text-primary group-hover:text-white transition"></i>
+      <div class="relative rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-48">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('${service.bgImage}')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/90 group-hover:via-black/60 transition-all duration-300"></div>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:bg-white/30 transition">
+            <i data-lucide="${service.icon}" class="h-7 w-7 text-white"></i>
+          </div>
+          <h3 class="font-bold text-lg text-white mb-2">${service.title}</h3>
+          <p class="text-gray-200 text-sm leading-relaxed">${service.desc}</p>
         </div>
-        <h3 class="font-semibold mb-2">${service.title}</h3>
-        <p class="text-gray-600 text-sm">${service.desc}</p>
       </div>
     `).join('');
   },
@@ -282,6 +286,7 @@ const Templates = {
     return `
       <li><a href="#" @click.prevent="page='home'" class="hover:text-white">首页</a></li>
       <li><a href="#" @click.prevent="page='vehicles'" class="hover:text-white">车型展示</a></li>
+      <li><a href="#" @click.prevent="page='packages'" class="hover:text-white">服务套餐</a></li>
       <li><a href="#" @click.prevent="page='about'" class="hover:text-white">关于我们</a></li>
       <li><a href="#" @click.prevent="page='contact'" class="hover:text-white">联系方式</a></li>
     `;
@@ -303,6 +308,86 @@ const Templates = {
       <li class="flex items-center"><i data-lucide="phone" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.phone"></span></li>
       <li class="flex items-center"><i data-lucide="mail" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.email"></span></li>
       <li class="flex items-center"><i data-lucide="map-pin" class="h-4 w-4 mr-2"></i><span x-text="CarRentalData.company.address"></span></li>
+    `;
+  },
+
+  // 增值服务套餐
+  servicePackagesSection() {
+    return CarRentalData.servicePackages.map(pkg => `
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${pkg.recommended ? 'ring-2 ring-primary relative' : ''}">
+        ${pkg.recommended ? '<div class="absolute top-0 right-0 bg-primary text-white text-xs px-3 py-1 rounded-bl-lg font-medium">推荐</div>' : ''}
+        <div class="p-6 ${pkg.recommended ? 'bg-gradient-to-r from-blue-50 to-blue-100' : 'bg-gray-50'}">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">${pkg.name}</h3>
+          <p class="text-sm text-gray-500 mb-2">${pkg.desc}</p>
+          <p class="text-2xl font-bold text-primary">${pkg.price}</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3">
+            ${pkg.features.map(f => `
+              <li class="flex items-start">
+                <i data-lucide="check-circle" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5"></i>
+                <div>
+                  <span class="font-medium text-gray-700">${f.label}：</span>
+                  <span class="text-gray-600 text-sm">${f.value}</span>
+                </div>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  // 押金说明
+  depositInfoSection() {
+    return CarRentalData.depositInfo.map(item => `
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+            <i data-lucide="${item.icon}" class="h-6 w-6 text-primary"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-gray-800">${item.type}</h3>
+            <p class="text-sm text-gray-500">${item.desc}</p>
+          </div>
+        </div>
+        <ul class="space-y-2">
+          ${item.details.map(d => `
+            <li class="flex items-start text-sm text-gray-600">
+              <i data-lucide="chevron-right" class="h-4 w-4 text-primary mr-2 flex-shrink-0 mt-0.5"></i>
+              <span>${d}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `).join('');
+  },
+
+  // 车辆价格分类
+  vehiclePriceClassesSection() {
+    return `
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-md overflow-hidden">
+          <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+            <tr>
+              <th class="px-6 py-4 text-left font-semibold">车辆分类</th>
+              <th class="px-6 py-4 text-left font-semibold">购置价格区间</th>
+              <th class="px-6 py-4 text-left font-semibold">车型示例</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            ${CarRentalData.vehiclePriceClasses.map((item, index) => `
+              <tr class="${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-blue-50 transition">
+                <td class="px-6 py-4">
+                  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold">${item.class}</span>
+                </td>
+                <td class="px-6 py-4 font-medium text-gray-800">${item.priceRange}</td>
+                <td class="px-6 py-4 text-gray-600">${item.examples}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
     `;
   }
 };
