@@ -490,36 +490,56 @@ document.addEventListener('alpine:init', () => {
       ).filter(Boolean);
     },
     
-    // Webhook 提交函数
+    // Webhook 提交函数 - 钉钉机器人（通过 Vercel 云函数代理）
     async submitBooking() {
-      const webhookUrl = 'YOUR_WEBHOOK_URL_HERE';
+      // Cloudflare Worker 代理地址
+      const apiUrl = 'https://webhook.osai.eu.org';
       
       try {
-        const response = await fetch(webhookUrl, {
+        // 构建消息内容（包含关键词：昭佳、车型、姓名、电话）
+        const messageContent = `【昭佳租车】新预订通知
+━━━━━━━━━━━━━━━━
+姓名：${this.bookingForm.name}
+电话：${this.bookingForm.phone}
+车型：${this.bookingForm.vehicle}
+取车日期：${this.bookingForm.date}
+还车日期：${this.bookingForm.returnDate || '未填写'}
+备注：${this.bookingForm.remarks || '无'}
+━━━━━━━━━━━━━━━━
+提交时间：${new Date().toLocaleString('zh-CN')}`;
+
+        const response = await fetch(apiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            ...this.bookingForm,
-            timestamp: new Date().toISOString()
+            msgtype: 'text',
+            text: {
+              content: messageContent
+            }
           })
         });
 
-        if (response.ok) {
+        const result = await response.json();
+        
+        if (result.errcode === 0) {
           this.submitSuccess = true;
           setTimeout(() => {
             this.submitSuccess = false;
             this.bookingForm = { name: '', phone: '', vehicle: '', date: '', returnDate: '', remarks: '' };
           }, 3000);
         } else {
-          alert('提交失败，请稍后重试');
+          console.error('钉钉推送失败:', result);
+          alert('提交失败：' + (result.errmsg || '请稍后重试'));
         }
       } catch (error) {
         console.error('Error:', error);
-        this.submitSuccess = true;
-        setTimeout(() => {
-          this.submitSuccess = false;
-                      this.bookingForm = { name: '', phone: '', vehicle: '', date: '', returnDate: '', remarks: '' };        }, 3000);
+        alert('提交失败，请检查网络后重试');
       }
+    },
+    
+    // 验证手机号格式
+    isValidPhone(phone) {
+      return /^1[3-9]\d{9}$/.test(phone);
     },
     
     // 滚动到顶部
