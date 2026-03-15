@@ -198,11 +198,11 @@ const CarRentalData = {
   },
 
   services: [
-    { icon: "key", title: "自驾租车", desc: "银川自驾租车，多种车型多种档次任你挑选", bgImage: "https://m.hellobike.com/resource/helloyun/29248/dMKaeeoZbP.png?x-oss-process=image/quality,q_80" },
-    { icon: "briefcase", title: "公务用车", desc: "银川公务用车，可公对公转账，及时开票", bgImage: "https://m.hellobike.com/resource/helloyun/29248/ms_wrrAeek.png?x-oss-process=image/quality,q_80" },
-    { icon: "map", title: "旅游包车", desc: "宁夏旅游包车，提供中型客车、大型客车带司机服务", bgImage: "images/大巴车.png" },
-    { icon: "heart", title: "婚庆租车", desc: "银川婚庆租车，各种豪车应有尽有，随您挑选", bgImage: "https://m.hellobike.com/resource/helloyun/29248/hnqE0vaeGA.png?x-oss-process=image/quality,q_80" },
-    { icon: "mountain", title: "沙漠拓展", desc: "提供五湖穿越、沙漠徒步等项目", bgImage: "images/沙漠.png" }
+    { icon: "key", title: "自驾租车", desc: "银川自驾租车，多种车型多种档次任你挑选", bgImage: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/自驾.png" },
+    { icon: "briefcase", title: "公务用车", desc: "银川公务用车，可公对公转账，及时开票", bgImage: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/公务.png" },
+    { icon: "map", title: "旅游包车", desc: "宁夏旅游包车，提供中型客车、大型客车带司机服务", bgImage: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/大巴车.png" },
+    { icon: "heart", title: "婚庆租车", desc: "银川婚庆租车，各种豪车应有尽有，随您挑选", bgImage: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/婚庆.png" },
+    { icon: "mountain", title: "沙漠拓展", desc: "提供五湖穿越、沙漠徒步等项目", bgImage: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/沙漠.png" }
   ],
 
   process: [
