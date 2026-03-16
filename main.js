@@ -68,20 +68,27 @@ const Templates = {
 
   // 热门车型区块
   hotVehiclesSection() {
+    const categoryClassMap = {
+      economy: 'text-green-700', comfort: 'text-blue-700', luxury: 'text-purple-700',
+      suv: 'text-orange-700', mpv: 'text-teal-700', sedan: 'text-indigo-700', pickup: 'text-amber-700',
+      tank: 'text-stone-700', haval: 'text-red-700', toyota: 'text-gray-700',
+      honda: 'text-rose-700', buick: 'text-cyan-700', byd: 'text-emerald-700', greatwall: 'text-slate-700',
+      trumpchi: 'text-blue-600', jetour: 'text-orange-600', denza: 'text-sky-600'
+    };
     return CarRentalData.hotVehicles.map(id => {
       const vehicle = CarRentalData.vehicles.find(v => v.id === id);
       if (!vehicle) return '';
-      const categoryName = CarRentalData.categories.find(c => c.id === vehicle.category)?.name || '';
-      const categoryClass = {
-        economy: 'text-green-700', comfort: 'text-blue-700', luxury: 'text-purple-700',
-        suv: 'text-orange-700', mpv: 'text-teal-700', sedan: 'text-indigo-700', pickup: 'text-amber-700'
-      }[vehicle.category] || 'text-gray-700';
+      const categoryTags = vehicle.categories.map(catId => {
+        const catName = CarRentalData.categories.find(c => c.id === catId)?.name || '';
+        const catClass = categoryClassMap[catId] || 'text-gray-700';
+        return `<span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-2 py-0.5 rounded-full ${catClass}">${catName}</span>`;
+      }).join('');
       return `
         <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
           <div class="relative h-48 overflow-hidden">
             <img src="${vehicle.image}" alt="${vehicle.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x250/2563eb/ffffff?text=车辆图片'">
-            <div class="absolute top-3 right-3">
-              <span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-3 py-1 rounded-full ${categoryClass}">${categoryName}</span>
+            <div class="absolute top-3 right-3 flex flex-wrap gap-1 justify-end">
+              ${categoryTags}
             </div>
           </div>
           <div class="p-5">
@@ -470,7 +477,17 @@ document.addEventListener('alpine:init', () => {
         suv: 'text-orange-700',
         mpv: 'text-teal-700',
         sedan: 'text-indigo-700',
-        pickup: 'text-amber-700'
+        pickup: 'text-amber-700',
+        tank: 'text-stone-700',
+        haval: 'text-red-700',
+        toyota: 'text-gray-700',
+        honda: 'text-rose-700',
+        buick: 'text-cyan-700',
+        byd: 'text-emerald-700',
+        greatwall: 'text-slate-700',
+        trumpchi: 'text-blue-600',
+        jetour: 'text-orange-600',
+        denza: 'text-sky-600'
       };
       return colorMap[categoryId] || 'text-gray-700';
     },
@@ -480,7 +497,7 @@ document.addEventListener('alpine:init', () => {
       if (this.vehicleFilter === 'all') {
         return this.data.vehicles;
       }
-      return this.data.vehicles.filter(v => v.category === this.vehicleFilter);
+      return this.data.vehicles.filter(v => v.categories && v.categories.includes(this.vehicleFilter));
     },
     
     // 热门车辆

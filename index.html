@@ -164,11 +164,13 @@
         <!-- 车型列表 -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <template x-for="vehicle in CarRentalData.vehicles" :key="vehicle.id">
-            <div x-show="vehicleFilter==='all'||vehicleFilter===vehicle.category" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <div x-show="vehicleFilter==='all'||vehicle.categories.includes(vehicleFilter)" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
               <div class="relative h-48 overflow-hidden">
                 <img :src="vehicle.image" :alt="vehicle.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x200/2563eb/ffffff?text=车辆图片'">
-                <div class="absolute top-3 right-3">
-                  <span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-3 py-1 rounded-full" :class="getCategoryClass(vehicle.category)" x-text="getCategoryName(vehicle.category)"></span>
+                <div class="absolute top-3 right-3 flex flex-wrap gap-1 justify-end">
+                  <template x-for="catId in vehicle.categories" :key="catId">
+                    <span class="text-xs font-medium backdrop-blur-sm bg-white/80 px-2 py-0.5 rounded-full" :class="getCategoryClass(catId)" x-text="getCategoryName(catId)"></span>
+                  </template>
                 </div>
               </div>
               <div class="p-5">

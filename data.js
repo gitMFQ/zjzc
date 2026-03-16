@@ -71,69 +71,256 @@ const CarRentalData = {
     { id: "buick", name: "别克", color: "cyan" },
     { id: "greatwall", name: "长城", color: "slate" },
     { id: "tank", name: "坦克", color: "stone" },
-    { id: "byd", name: "比亚迪", color: "emerald" }
+    { id: "byd", name: "比亚迪", color: "emerald" },
+    { id: "trumpchi", name: "传祺", color: "blue" },
+    { id: "jetour", name: "捷途", color: "orange" },
+    { id: "denza", name: "腾势", color: "sky" }
   ],
 
   vehicles: [
     {
       id: 1,
-      name: "丰田卡罗拉",
-      category: "economy",
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 1.6L · 油耗5.8L/100km",
-      features: ["适合1-4人出行", "省油经济，适合市区代步"]
+      name: "坦克300 2024挑战者",
+      categories: ["tank", "suv", "luxury"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/坦克1.jpg",
+      specs: "5座 · 自动挡 · 2.0T · 硬派越野SUV",
+      features: ["硬派潮品，燃擎而至", "越野能力强，适合自驾游"]
     },
     {
       id: 2,
-      name: "本田思域",
-      category: "economy",
-      image: "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 1.5T · 油耗6.2L/100km",
-      features: ["动力充沛，驾驶乐趣", "运动造型，适合年轻人"]
+      name: "哈弗H6 2023国潮版",
+      categories: ["haval", "suv", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2023-2.jpg",
+      specs: "5座 · 自动挡 · 1.5T",
+      features: ["目之所及，心之所动", "国民神车，性价比之选"]
     },
     {
       id: 3,
-      name: "大众帕萨特",
-      category: "comfort",
-      image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 2.0T · 油耗7.1L/100km",
-      features: ["空间宽敞，乘坐舒适", "商务出行首选"]
+      name: "丰田威兰达",
+      categories: ["toyota", "suv", "comfort"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/威兰达.jpg",
+      specs: "5座 · 自动挡 · 2.0L",
+      features: ["丰田品质，可靠耐用", "城市SUV首选"]
     },
     {
       id: 4,
-      name: "丰田凯美瑞",
-      category: "comfort",
-      image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 2.5L · 油耗6.8L/100km",
-      features: ["品质可靠，口碑良好", "静谧性强，长途首选"]
+      name: "比亚迪宋PLUS DM-i",
+      categories: ["byd", "suv", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/宋plusdmi.jpg",
+      specs: "5座 · 自动挡 · 插电混动",
+      features: ["新能源首选，超低油耗", "智能科技配置丰富"]
     },
     {
       id: 5,
-      name: "奔驰E级",
-      category: "luxury",
-      image: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 2.0T · 油耗8.5L/100km",
-      features: ["豪华内饰，尊贵体验", "商务接待，彰显品位"]
+      name: "本田XR-V",
+      categories: ["honda", "suv", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/xrv.jpg",
+      specs: "5座 · 自动挡 · 1.5L",
+      features: ["小型SUV，灵活好开", "省油经济，适合市区代步"]
     },
     {
       id: 6,
-      name: "宝马5系",
-      category: "luxury",
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop",
-      specs: "5座 · 自动挡 · 2.0T · 油耗8.2L/100km",
-      features: ["操控出色，驾驶乐趣", "科技配置，智能互联"]
+      name: "别克英朗",
+      categories: ["buick", "sedan", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/英朗.jpg",
+      specs: "5座 · 自动挡 · 1.3T",
+      features: ["经济实惠，家用首选", "空间舒适，性价比高"]
     },
     {
       id: 7,
-      name: "丰田汉兰达",
-      category: "suv",
+      name: "别克GL8",
+      categories: ["buick", "mpv", "luxury"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/gl8.jpg",
+      specs: "7座 · 自动挡 · 2.0T · 豪华MPV",
+      features: ["全场景豪华MPV", "恢弘气场，礼敬非凡", "商务接待首选"]
+    },
+    {
+      id: 8,
+      name: "长城风骏5",
+      categories: ["greatwall", "pickup", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/风骏5.jpg",
+      specs: "5座 · 手动挡 · 2.4L · 皮卡",
+      features: ["皮实耐用，载货能力强", "适合工地、农用等场景"]
+    },
+    {
+      id: 9,
+      name: "本田雅阁",
+      categories: ["honda", "sedan", "comfort"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/雅阁.jpg",
+      specs: "5座 · 自动挡 · 1.5T",
+      features: ["商务轿车典范", "操控出色，舒适静音"]
+    },
+    {
+      id: 10,
+      name: "哈弗H6 2023豪华版",
+      categories: ["haval", "suv", "comfort"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2023-1.jpg",
+      specs: "5座 · 自动挡 · 1.5T",
+      features: ["配置丰富，驾乘舒适", "智能科技加持"]
+    },
+    {
+      id: 11,
+      name: "丰田卡罗拉锐放",
+      categories: ["toyota", "suv", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/锐放.jpg",
+      specs: "5座 · 自动挡 · 2.0L",
+      features: ["大气硬朗，动静皆主场", "丰田品质，省心可靠"]
+    },
+    {
+      id: 12,
+      name: "丰田皇冠陆放",
+      categories: ["toyota", "suv", "luxury"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/陆放.jpg",
+      specs: "7座 · 自动挡 · 2.5L双擎 · 混合动力",
+      features: ["承经典，铸传奇", "旗舰SUV，豪华舒适"]
+    },
+    {
+      id: 13,
+      name: "丰田普拉多",
+      categories: ["toyota", "suv", "luxury"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/霸道.jpg",
+      specs: "7座 · 自动挡 · 3.5L · 硬派越野",
+      features: ["越野王者，可靠性极高", "适合长途穿越"]
+    },
+    {
+      id: 14,
+      name: "丰田雷凌",
+      categories: ["toyota", "sedan", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/雷凌.jpg",
+      specs: "5座 · 自动挡 · 1.2T",
+      features: ["经济省油，家用实惠", "操控灵活，适合城市"]
+    },
+    {
+      id: 15,
+      name: "哈弗H6 2019版",
+      categories: ["haval", "suv", "economy"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/h6-2019.jpg",
+      specs: "5座 · 自动挡 · 1.5T",
+      features: ["经典款型，价格实惠", "性价比之选"]
+    },
+    {
+      id: 16,
+      name: "丰田RAV4荣放",
+      categories: ["toyota", "suv", "comfort"],
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/rav4.jpg",
+      specs: "5座 · 自动挡 · 2.0L",
+      features: ["城市SUV标杆", "均衡可靠，保值率高"]
+    },
+    {
+      id: 17,
+      name: "传祺M8宗师版",
+      categories: ["trumpchi", "mpv", "luxury"],
+      image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop",
+      specs: "7座 · 自动挡 · 2.0T · 豪华MPV",
+      features: ["东方豪华，礼遇非凡", "商务接待尊贵之选", "静谧舒适，空间宽敞"]
+    },
+    {
+      id: 18,
+      name: "比亚迪海豹05",
+      categories: ["byd", "sedan", "economy"],
+      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 插电混动",
+      features: ["海洋美学设计", "超低油耗，节能环保", "智能科技，年轻动感"]
+    },
+    {
+      id: 19,
+      name: "捷途旅行者",
+      categories: ["jetour", "suv", "comfort"],
       image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=250&fit=crop",
-      specs: "7座 · 自动挡 · 2.5L · 油耗8.8L/100km",
-      features: ["7座空间，全家出行", "通过性强，适合越野"]
+      specs: "5座 · 自动挡 · 2.0T · 轻越野SUV",
+      features: ["旅行+轻越野", "硬朗造型，个性十足", "适合自驾旅行"]
+    },
+    {
+      id: 20,
+      name: "哈弗大狗",
+      categories: ["haval", "suv", "economy"],
+      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 1.5T",
+      features: ["潮玩越野，城市探索", "个性命名，年轻潮流", "轻度越野能力"]
+    },
+    {
+      id: 21,
+      name: "捷途山海T2",
+      categories: ["jetour", "suv", "comfort"],
+      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 插电混动 · 轻越野SUV",
+      features: ["旅行越野混动SUV", "新能源+越野双重属性", "适合长途自驾"]
+    },
+    {
+      id: 22,
+      name: "腾势D9",
+      categories: ["denza", "mpv", "luxury"],
+      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=250&fit=crop",
+      specs: "7座 · 自动挡 · 插电混动 · 豪华MPV",
+      features: ["新能源豪华MPV", "比亚迪与奔驰联合打造", "商务接待尊贵之选"]
+    },
+    {
+      id: 23,
+      name: "比亚迪秦PLUS DM-i",
+      categories: ["byd", "sedan", "economy"],
+      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 插电混动",
+      features: ["国民家轿首选", "超低油耗，经济实惠", "DM-i超级混动技术"]
+    },
+    {
+      id: 24,
+      name: "比亚迪汉DM",
+      categories: ["byd", "sedan", "luxury"],
+      image: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 插电混动",
+      features: ["旗舰轿车，豪华座驾", "Dragon Face设计语言", "商务出行首选"]
+    },
+    {
+      id: 25,
+      name: "比亚迪唐DM-i",
+      categories: ["byd", "suv", "luxury"],
+      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      specs: "7座 · 自动挡 · 插电混动",
+      features: ["旗舰SUV，大七座", "家庭出行首选", "豪华舒适，空间宽敞"]
+    },
+    {
+      id: 26,
+      name: "比亚迪元PLUS",
+      categories: ["byd", "suv", "economy"],
+      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 纯电动",
+      features: ["纯电SUV，城市通勤", "龙颜美学设计", "年轻时尚，经济环保"]
+    },
+    {
+      id: 27,
+      name: "比亚迪海豚",
+      categories: ["byd", "sedan", "economy"],
+      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 纯电动",
+      features: ["海洋美学设计", "纯电小车，城市代步", "灵活好开，经济实惠"]
+    },
+    {
+      id: 28,
+      name: "比亚迪宋Pro DM-i",
+      categories: ["byd", "suv", "economy"],
+      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 插电混动",
+      features: ["家用SUV首选", "DM-i超级混动", "空间实用，性价比高"]
+    },
+    {
+      id: 29,
+      name: "坦克500",
+      categories: ["tank", "suv", "luxury"],
+      image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 3.0T · 硬派越野SUV",
+      features: ["商务豪华越野", "V6动力，强劲性能", "高端商务与越野兼顾"]
+    },
+    {
+      id: 30,
+      name: "坦克700",
+      categories: ["tank", "suv", "luxury"],
+      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop",
+      specs: "5座 · 自动挡 · 3.0T Hi4-T · 硬派越野SUV",
+      features: ["旗舰越野之王", "极致豪华与越野", "新能源混动越野"]
     }
   ],
 
-  hotVehicles: [1, 3, 5],
+  hotVehicles: [1, 2, 12],
 
   faqs: [
     {
@@ -215,10 +402,10 @@ const CarRentalData = {
   ],
 
   team: [
-    { name: "牛昭平", role: "总经理", desc: "15年汽车行业经验，深耕租车服务领域", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "邵佳华", role: "运营总监", desc: "专注客户体验优化，提升服务品质", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { name: "马富强", role: "车队经理", desc: "负责车辆维护保养，确保车况优良", avatar: "https://randomuser.me/api/portraits/men/45.jpg" },
-    { name: "马跃", role: "客户经理", desc: "用心服务每一位客户，解决用车问题", avatar: "https://randomuser.me/api/portraits/men/68.jpg" }
+    { name: "牛昭平", role: "总经理", desc: "15年汽车行业经验，深耕租车服务领域", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=niuzhaoping" },
+    { name: "邵佳华", role: "运营总监", desc: "专注客户体验优化，提升服务品质", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=shaojiahua" },
+    { name: "马富强", role: "车队经理", desc: "负责车辆维护保养，确保车况优良", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=马富强" },
+    { name: "马跃", role: "客户经理", desc: "用心服务每一位客户，解决用车问题", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=mayue" }
   ],
 
   testimonials: [
@@ -255,10 +442,10 @@ const CarRentalData = {
     },
     {
       name: "优享服务",
-      price: "80-120元/天",
+      price: "40-60元/天",
       desc: "全面保障，安心出行",
       features: [
-        { label: "收费标准", value: "A1/80元，A2/B1/90元，B2/C1/100元，C2/120元" },
+        { label: "收费标准", value: "A1/40元；A2、B1/50元；B2、C1/60元" },
         { label: "车辆损失", value: "甲方承担5000元内损失，承租人承担5000元以上部分" },
         { label: "折旧费", value: "维修费超5000元收20%，超30000元收30%" },
         { label: "停驶费", value: "维修时间×每日租金（含定损期间）" },
@@ -269,10 +456,10 @@ const CarRentalData = {
     },
     {
       name: "尊享服务",
-      price: "另询",
+      price: "80-120元/天",
       desc: "尊贵体验，无忧出行",
       features: [
-        { label: "收费标准", value: "具体价格请咨询门店客服" },
+        { label: "收费标准", value: "A1/80元，A2/B1/90元，B2/C1/100元，C2/120元" },
         { label: "车辆损失", value: "甲方承担全部损失" },
         { label: "折旧费", value: "维修费超30000元收20%，超50000元收30%" },
         { label: "停驶费", value: "超过5000元以上部分由甲方承担" },
