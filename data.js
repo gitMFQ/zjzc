@@ -210,7 +210,7 @@ const CarRentalData = {
       id: 17,
       name: "传祺M8宗师版",
       categories: ["trumpchi", "mpv", "luxury"],
-      image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/传祺m8.jpg",
       specs: "7座 · 自动挡 · 2.0T · 豪华MPV",
       features: ["东方豪华，礼遇非凡", "商务接待尊贵之选", "静谧舒适，空间宽敞"]
     },
@@ -218,7 +218,7 @@ const CarRentalData = {
       id: 18,
       name: "比亚迪海豹05",
       categories: ["byd", "sedan", "economy"],
-      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/海豹05.jpg",
       specs: "5座 · 自动挡 · 插电混动",
       features: ["海洋美学设计", "超低油耗，节能环保", "智能科技，年轻动感"]
     },
@@ -226,7 +226,7 @@ const CarRentalData = {
       id: 19,
       name: "捷途旅行者",
       categories: ["jetour", "suv", "comfort"],
-      image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/捷途旅行者.jpg",
       specs: "5座 · 自动挡 · 2.0T · 轻越野SUV",
       features: ["旅行+轻越野", "硬朗造型，个性十足", "适合自驾旅行"]
     },
@@ -234,7 +234,7 @@ const CarRentalData = {
       id: 20,
       name: "哈弗大狗",
       categories: ["haval", "suv", "economy"],
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/哈弗大狗.jpg",
       specs: "5座 · 自动挡 · 1.5T",
       features: ["潮玩越野，城市探索", "个性命名，年轻潮流", "轻度越野能力"]
     },
@@ -242,7 +242,7 @@ const CarRentalData = {
       id: 21,
       name: "捷途山海T2",
       categories: ["jetour", "suv", "comfort"],
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/捷途山海t2.jpg",
       specs: "5座 · 自动挡 · 插电混动 · 轻越野SUV",
       features: ["旅行越野混动SUV", "新能源+越野双重属性", "适合长途自驾"]
     },
@@ -250,7 +250,7 @@ const CarRentalData = {
       id: 22,
       name: "腾势D9",
       categories: ["denza", "mpv", "luxury"],
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/腾势d9.jpg",
       specs: "7座 · 自动挡 · 插电混动 · 豪华MPV",
       features: ["新能源豪华MPV", "比亚迪与奔驰联合打造", "商务接待尊贵之选"]
     },
@@ -258,7 +258,7 @@ const CarRentalData = {
       id: 23,
       name: "比亚迪秦PLUS DM-i",
       categories: ["byd", "sedan", "economy"],
-      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/秦plus.jpg",
       specs: "5座 · 自动挡 · 插电混动",
       features: ["国民家轿首选", "超低油耗，经济实惠", "DM-i超级混动技术"]
     },
@@ -266,7 +266,7 @@ const CarRentalData = {
       id: 24,
       name: "比亚迪汉DM",
       categories: ["byd", "sedan", "luxury"],
-      image: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/汉DM.jpg",
       specs: "5座 · 自动挡 · 插电混动",
       features: ["旗舰轿车，豪华座驾", "Dragon Face设计语言", "商务出行首选"]
     },
@@ -274,7 +274,7 @@ const CarRentalData = {
       id: 25,
       name: "比亚迪唐DM-i",
       categories: ["byd", "suv", "luxury"],
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/唐.jpg",
       specs: "7座 · 自动挡 · 插电混动",
       features: ["旗舰SUV，大七座", "家庭出行首选", "豪华舒适，空间宽敞"]
     },
@@ -282,7 +282,7 @@ const CarRentalData = {
       id: 26,
       name: "比亚迪元PLUS",
       categories: ["byd", "suv", "economy"],
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/元PLUS.jpg",
       specs: "5座 · 自动挡 · 纯电动",
       features: ["纯电SUV，城市通勤", "龙颜美学设计", "年轻时尚，经济环保"]
     },
@@ -290,7 +290,7 @@ const CarRentalData = {
       id: 27,
       name: "比亚迪海豚",
       categories: ["byd", "sedan", "economy"],
-      image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/海豚.png",
       specs: "5座 · 自动挡 · 纯电动",
       features: ["海洋美学设计", "纯电小车，城市代步", "灵活好开，经济实惠"]
     },
@@ -298,7 +298,7 @@ const CarRentalData = {
       id: 28,
       name: "比亚迪宋Pro DM-i",
       categories: ["byd", "suv", "economy"],
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/宋Pro.png",
       specs: "5座 · 自动挡 · 插电混动",
       features: ["家用SUV首选", "DM-i超级混动", "空间实用，性价比高"]
     },
@@ -306,7 +306,7 @@ const CarRentalData = {
       id: 29,
       name: "坦克500",
       categories: ["tank", "suv", "luxury"],
-      image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/坦克500.jpeg",
       specs: "5座 · 自动挡 · 3.0T · 硬派越野SUV",
       features: ["商务豪华越野", "V6动力，强劲性能", "高端商务与越野兼顾"]
     },
@@ -314,7 +314,7 @@ const CarRentalData = {
       id: 30,
       name: "坦克700",
       categories: ["tank", "suv", "luxury"],
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop",
+      image: "https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/坦克700.jpg",
       specs: "5座 · 自动挡 · 3.0T Hi4-T · 硬派越野SUV",
       features: ["旗舰越野之王", "极致豪华与越野", "新能源混动越野"]
     }
