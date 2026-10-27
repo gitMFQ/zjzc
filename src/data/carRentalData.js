@@ -32,7 +32,7 @@ export const CarRentalData = {
     name: "昭佳租车",
     slogan: "昭佳租车，畅享出行",
     description: "专业汽车租赁服务，为您提供安全、舒适、便捷的出行体验",
-    phone: "187 9500 7776 / 199 0957 0777",
+    phone: "187 9500 7776",
     email: "info@nxzjzc.cn",
     fax: "0951-5606667",
     address: "银川市金凤区旭辉江南学府44-10号",
@@ -406,8 +406,7 @@ export const CarRentalData = {
   team: [
     { name: "牛昭平", role: "总经理", desc: "15年汽车行业经验，深耕租车服务领域", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=niuzhaoping" },
     { name: "邵佳华", role: "运营总监", desc: "专注客户体验优化，提升服务品质", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=shaojiahua" },
-    { name: "马富强", role: "车队经理", desc: "负责车辆维护保养，确保车况优良", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=马富强" },
-    { name: "马跃", role: "客户经理", desc: "用心服务每一位客户，解决用车问题", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=mayue" }
+    { name: "马富强", role: "车队经理", desc: "负责车辆维护保养，确保车况优良", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=马富强" }
   ],
 
   testimonials: [

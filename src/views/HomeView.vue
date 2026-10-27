@@ -119,7 +119,8 @@ function onAvatarError(event, name) {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">团队成员</h2>
         <p class="text-center text-gray-600 mb-12">专业团队，用心服务每一位客户！</p>
-        <div class="grid md:grid-cols-4 gap-8">
+        <!-- auto-fit：成员数量变化时卡片自动均分整行，避免出现空缺列 -->
+        <div class="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
           <div
             v-for="member in team"
             :key="member.name"
