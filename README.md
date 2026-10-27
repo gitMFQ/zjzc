@@ -50,7 +50,7 @@ zjzc/
 │   │   ├── assets.js           # assetUrl()：图片路径解析（本地 / CDN 可切换）
 │   │   └── helpers.js          # 分类名称/颜色、车型筛选、手机号校验
 │   ├── stores/booking.js       # 预订表单共享状态（车型页 -> 联系页联动）
-│   ├── services/bookingService.js  # 钉钉 webhook 提交（经 Cloudflare Worker 代理）
+│   ├── services/bookingService.js  # 预订提交（经 Cloudflare Worker 代理推送到钉钉 + OIH）
 │   ├── composables/useScrollY.js   # 共享滚动位置、返回顶部
 │   ├── components/
 │   │   ├── AppNavbar.vue / AppFooter.vue / FloatingActions.vue
@@ -66,7 +66,7 @@ zjzc/
 │       ├── ContactView.vue     # 联系方式 + 在线预订
 │       └── HelpView.vue        # 帮助中心
 ├── images/                     # 图片资源（构建时复制到 dist/images）
-├── cloudflare-worker.js        # 钉钉 Webhook 代理（Cloudflare Worker）
+├── cloudflare-worker.js        # 预订推送代理（钉钉 + OIH，Cloudflare Worker）
 ├── legacy/                     # 重构前的 Alpine.js 版本备份
 └── 协会合同.docx
 ```
@@ -135,6 +135,42 @@ npm run preview  # 预览构建产物
 | --- | --- |
 | `VITE_IMAGE_BASE` | 图片基础地址。默认使用站点同源 `images/`；国内访问可改为 CDN，例如 `https://cdn.jsdmirror.com/gh/gitmfq/zjzc@master/images/` |
 | `VITE_WEBHOOK_ENDPOINT` | 预订消息推送地址，默认 `https://webhook.osai.eu.org`（Cloudflare Worker 代理，见 `cloudflare-worker.js`） |
+
+### Worker 端环境变量（钉钉 + OIH）
+
+在 Cloudflare 控制台 Worker 的 Settings → Variables 中配置（**Token 只放这里，不要写进代码**）：
+
+| 变量 | 说明 |
+| --- | --- |
+| `WEBHOOK_BASE_URL` | 钉钉机器人 webhook，形如 `https://oapi.dingtalk.com/robot/send?access_token=xxx` |
+| `SECRET` | 钉钉加签密钥 `SECxxx`（机器人未开启加签可留空） |
+| `OIH_API_URL` | 可选，OIH 推送地址，默认 `https://oih.osai.eu.org:8443/bot/v1/message/send` |
+| `OIH_TOKEN` | OIH 的 Bearer Token，以 `Authorization: Bearer <OIH_TOKEN>` 发送；留空则不推 OIH |
+
+推送策略：钉钉为主通道，同步等待其返回（前端按 `errcode` 提示用户）；OIH 用 `ctx.waitUntil()` 后台推送（请求体 `{"content": "消息正文"}`），带 8 秒超时 + 1 次重试，失败只写日志，绝不拖慢预订响应。
+
+> ⚠️ 已知问题：OIH 主机 `oih.osai.eu.org` 目前只有 IPv6（国内线路），Cloudflare 回源时握手/连接不稳定，实测约一半请求会返回 520/525 或超时。需要稳定双通道时，建议给该主机补 IPv4 的 A 记录，或用 Cloudflare Tunnel（cloudflared 出站）把 OIH 暴露到 Cloudflare 网络内的另一个域名，再把 `OIH_API_URL` 指过去。
+
+Token 用加密变量保存，不要写进代码：
+
+```bash
+npx wrangler secret put OIH_TOKEN
+```
+
+### 部署 Worker
+
+仓库根目录的 `wrangler.jsonc` 已固定 Worker 名称（`zjwebhook`）、入口与 `workers_dev = false`，直接部署即可（已存在的 Secret 会保留）：
+
+```bash
+npx wrangler deploy
+# 或 npm run deploy:worker
+```
+
+线上入口为自定义域 `https://webhook.osai.eu.org`；查看后台推送日志：
+
+```bash
+npx wrangler tail zjwebhook
+```
 
 ## 部署
 
